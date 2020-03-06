@@ -1,6 +1,10 @@
 # Find jpg filenames and add as a list 
 dir /s/b *.jpg >listjpg.txt” 
 
+# Start LabelIMG
+C:\Users\sysadmin>cd C:\Anaconda\Lib\labelImg\labelImg
+C:\Anaconda\Lib\labelImg\labelImg>python labelImg.py
+
 # Start training
 darknet.exe detector train .\data\nls.data .\cfg\yolov3-nls.cfg ..\..\..\..\darknet53.conv.74 >.\nls_traininglogs.txt 2>&1
 
