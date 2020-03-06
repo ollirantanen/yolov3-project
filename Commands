@@ -11,8 +11,5 @@ darknet.exe detector train .\data\nls.data .\cfg\yolov3-nls.cfg ..\..\..\..\dark
 # Start testing with single images
 darknet.exe test .\data\nls.data .\cfg\yolov3-nls.cfg .data\backup_20022020\yolo-nls_final.weights
 
-# Start testing with  images
-darknet.exe test .\data\nls.data .\cfg\yolov3-nls.cfg .data\backup_20022020\yolo-nls_final.weights
-
 # Start testing with multiple images, saving coordinate info and confidence levels on file "result.txt"
 darknet.exe detector test .\data\nls.data .\cfg\yolov3-nls.cfg .\data\backup_20022020\yolo-nls_final.weights -ext_output -dont_show < data\testimg.txt > result.txt
