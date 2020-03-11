@@ -5,7 +5,7 @@ dir /s/b *.jpg >listjpg.txt”
 C:\Users\sysadmin>cd C:\Anaconda\Lib\labelImg\labelImg
 C:\Anaconda\Lib\labelImg\labelImg>python labelImg.py
 
-# Start training
+# Start training and save results to training logs
 darknet.exe detector train .\data\nls.data .\cfg\yolov3-nls.cfg ..\..\..\..\darknet53.conv.74 >.\nls_traininglogs.txt 2>&1
 
 # Start testing with single images
