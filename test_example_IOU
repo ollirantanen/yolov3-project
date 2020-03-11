@@ -1,0 +1,25 @@
+examples = [
+	Detection("E:\Inkoo_5_only_yields\Copy_5_imgswith_yields\pano_0009_000013_023.jpg", [779,284,795,296], [780,284,792,296]),
+	Detection("E:\Inkoo_5_only_yields\Copy_5_imgswith_yields\pano_0009_000014_023.jpg", [773,293,789,305], [775,293,786,304]),
+	Detection("E:\Inkoo_5_only_yields\Copy_5_imgswith_yields\pano_0009_000015_023.jpg", [786,277,802,290], [788,278,800,290]),
+	Detection("E:\Inkoo_5_only_yields\Copy_5_imgswith_yields\pano_0009_000016_023.jpg", [795,269,809,282], [796,270,809,282]),
+	Detection("E:\Inkoo_5_only_yields\Copy_5_imgswith_yields\pano_0009_000019_023.jpg", [769,310,784,321], [770,310,781,321])]
+
+# loop over the example detections
+for detection in examples:
+	# load the image
+	image = cv2.imread(detection.image_path)
+	# draw the ground-truth bounding box along with the predicted
+	# bounding box
+	cv2.rectangle(image, tuple(detection.gt[:2]), 
+		tuple(detection.gt[2:]), (0, 255, 0), 2)
+	cv2.rectangle(image, tuple(detection.pred[:2]), 
+		tuple(detection.pred[2:]), (0, 0, 255), 2)
+	# compute the intersection over union and display it
+	iou = bb_intersection_over_union(detection.gt, detection.pred)
+	cv2.putText(image, "IoU: {:.4f}".format(iou), (10, 30),
+		cv2.FONT_HERSHEY_SIMPLEX, 0.6, (0, 255, 0), 2)
+	print("{}: {:.4f}".format(detection.image_path, iou))
+	# show the output image
+	cv2.imshow("Image", image)
+	cv2.waitKey(0)
