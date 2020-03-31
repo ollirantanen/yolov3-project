@@ -2,7 +2,7 @@ Created on Tue Mar 10 18:06:07 2020
 
 @author: sysadmin
 """
-
+# Inspired by https://stackoverflow.com/questions/28723670/intersection-over-union-between-two-detections
 # import the necessary packages
 from collections import namedtuple
 import numpy as np
